@@ -9,38 +9,28 @@ class ContatoController extends Controller
 {
     public function index()
     {
-        //
-    }
-
-    public function create()
-    {
-        //
+        return Contato::all();
     }
 
     public function store(Request $request)
     {
-        $contato = Contato::create($request);
-
-        return $contato;
+        return Contato::create($request->all());
     }
 
     public function show(Contato $contato)
     {
-        //
-    }
-
-    public function edit(Contato $contato)
-    {
-        //
+        return $contato;
     }
 
     public function update(Request $request, Contato $contato)
     {
-        //
+        $contato->update($request->all());
+
+        return $contato->fresh();
     }
 
     public function destroy(Contato $contato)
     {
-        //
+        $contato->delete();
     }
 }
